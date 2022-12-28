@@ -1,3 +1,7 @@
+fn main() {
+    println!("Hello, world!");
+}
+
 /*
 <?php
 
@@ -49,7 +53,3 @@ printf("Income Tax: £%d\n", $income_tax);
 printf("National Insurance Tax: £%d\n", $national_insurance_tax);
 printf("Total: £%d\n", $total_tax);
 */
-
-fn main() {
-    println!("Hello, world!");
-}
