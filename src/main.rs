@@ -5,11 +5,11 @@ mod user_input;
 */
 
 fn min(arg1: f64, arg2: f64) -> f64 {
-    return if arg1 < arg2 {
+    if arg1 < arg2 {
         arg1
     } else {
         arg2
-    };
+    }
 }
 
 fn calculate_tax(bands: &mut Vec<Vec<f64>>, monthly_salary: f64) -> f64 {
