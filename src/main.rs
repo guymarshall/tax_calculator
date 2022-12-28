@@ -7,8 +7,6 @@ fn main() {
 }
 
 /*
-<?php
-
 function calculate_tax($bands, $monthly_salary) {
     $running_pay = $monthly_salary;
     $running_tax = 0.0;
