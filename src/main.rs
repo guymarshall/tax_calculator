@@ -1,10 +1,8 @@
+mod user_input;
+
 /*
     This program calculates the income tax, national insurance tax, and total tax that will be paid on the user's income.
 */
-
-fn main() {
-    println!("Hello, world!");
-}
 
 /*
 function calculate_tax($bands, $monthly_salary) {
@@ -25,26 +23,23 @@ function calculate_tax($bands, $monthly_salary) {
 }
 */
 
-/*
-$monthly_salary = readline("Enter monthly salary: £");
+fn main() {
+    let monthly_salary: i32 = user_input::get_user_input("Enter monthly salary (£):");
 
-if ($monthly_salary < 0) {
-    exit("Please enter a valid monthly salary.");
+    let income_tax_bands: Vec<Vec<f64>> = vec![
+        vec![12570.0 / 12.0,            0.0,    0.0],   // allowances
+        vec![(50270.0 - 12570.0) / 12.0,  0.2,    0.0],   // basic
+        vec![(150000.0 - 50270.0) / 12.0, 0.4,    0.0],   // higher
+        vec![-1.0,                    0.45,   0.0]    // above
+    ];
+
+    let national_insurance_bands: Vec<Vec<f64>> = vec![
+        vec![1048.0,            0.0,    0.0],   // primary threshold
+        vec![4189.0 - 1048.0,   0.1325, 0.0],   // upper earnings limit
+        vec![-1.0,              0.0325, 0.0]    // above
+    ];
 }
-
-$income_tax_bands = [
-    [12570 / 12,            0.0,    0.0],   // allowances
-    [(50270 - 12570) / 12,  0.2,    0.0],   // basic
-    [(150000 - 50270) / 12, 0.4,    0.0],   // higher
-    [-1,                    0.45,   0.0]    // above
-];
-
-$national_insurance_bands = [
-    [1048,          0.00,   0.00],  // primary threshold
-    [4189 - 1048,   0.1325, 0.00],  // upper earnings limit
-    [-1.0,          0.0325, 0.00]   // above
-];
-
+/*
 $income_tax = calculate_tax($income_tax_bands, $monthly_salary);
 $national_insurance_tax = calculate_tax($national_insurance_bands, $monthly_salary);
 $total_tax = $income_tax + $national_insurance_tax;
