@@ -4,6 +4,8 @@ mod user_input;
     This program calculates the income tax, national insurance tax, and total tax that will be paid on the user's income.
 */
 
+// TODO process in p instead of £ (f64 to i32, x100)
+
 fn calculate_tax(bands: &mut Vec<Vec<f64>>, monthly_salary: f64) -> f64 {
     let mut running_pay: f64 = monthly_salary;
     let mut running_tax: f64 = 0.0;
