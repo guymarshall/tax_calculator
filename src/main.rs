@@ -4,21 +4,17 @@ mod user_input;
     This program calculates the income tax, national insurance tax, and total tax that will be paid on the user's income.
 */
 
-fn min(arg1: f64, arg2: f64) -> f64 {
-    if arg1 < arg2 {
-        arg1
-    } else {
-        arg2
-    }
-}
-
 fn calculate_tax(bands: &mut Vec<Vec<f64>>, monthly_salary: f64) -> f64 {
     let mut running_pay: f64 = monthly_salary;
     let mut running_tax: f64 = 0.0;
 
     for band in bands {
         if band[0] >= 0.0 {
-            band[2] = min(running_pay, band[0]);
+            band[2] = if running_pay < band[0] {
+                running_pay
+            } else {
+                band[0]
+            };
         } else {
             band[2] = running_pay;
         }
