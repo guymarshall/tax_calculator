@@ -23,7 +23,9 @@ function calculate_tax($bands, $monthly_salary) {
 
     return $running_tax;
 }
+*/
 
+/*
 $monthly_salary = readline("Enter monthly salary: £");
 
 if ($monthly_salary < 0) {
