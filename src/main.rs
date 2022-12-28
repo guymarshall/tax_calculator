@@ -4,6 +4,11 @@ mod user_input;
     This program calculates the income tax, national insurance tax, and total tax that will be paid on the user's income.
 */
 
+fn calculate_tax(arg1: Vec<Vec<f64>>, arg2: f64) -> f64 {
+    println!("{:?} and {}", arg1, arg2);
+    2.0
+}
+
 /*
 function calculate_tax($bands, $monthly_salary) {
     $running_pay = $monthly_salary;
@@ -24,7 +29,7 @@ function calculate_tax($bands, $monthly_salary) {
 */
 
 fn main() {
-    let monthly_salary: i32 = user_input::get_user_input("Enter monthly salary (£):");
+    let monthly_salary: f64 = user_input::get_user_input("Enter monthly salary (£):");
 
     let income_tax_bands: Vec<Vec<f64>> = vec![
         vec![12570.0 / 12.0,            0.0,    0.0],   // allowances
@@ -38,13 +43,12 @@ fn main() {
         vec![4189.0 - 1048.0,   0.1325, 0.0],   // upper earnings limit
         vec![-1.0,              0.0325, 0.0]    // above
     ];
-}
-/*
-$income_tax = calculate_tax($income_tax_bands, $monthly_salary);
-$national_insurance_tax = calculate_tax($national_insurance_bands, $monthly_salary);
-$total_tax = $income_tax + $national_insurance_tax;
 
-printf("Income Tax: £%d\n", $income_tax);
-printf("National Insurance Tax: £%d\n", $national_insurance_tax);
-printf("Total: £%d\n", $total_tax);
-*/
+    let income_tax: f64 = calculate_tax(income_tax_bands, monthly_salary);
+    let national_insurance_tax: f64 = calculate_tax(national_insurance_bands, monthly_salary);
+    let total_tax: f64 = income_tax + national_insurance_tax;
+
+    println!("Income Tax: £{}", income_tax);
+    println!("National Insurance Tax: £{}", national_insurance_tax);
+    println!("Total: £{}", total_tax);
+}
