@@ -1,13 +1,13 @@
+/*
+    This program calculates the income tax, national insurance tax, and total tax that will be paid on the user's income.
+*/
+
 fn main() {
     println!("Hello, world!");
 }
 
 /*
 <?php
-
-/**
- * This program calculates the income tax, national insurance tax, and total tax that will be paid on the user's income.
- */
 
 function calculate_tax($bands, $monthly_salary) {
     $running_pay = $monthly_salary;
