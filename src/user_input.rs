@@ -7,7 +7,5 @@ pub fn get_user_input(prompt: &str) -> f64 {
 
     io::stdin().read_line(&mut user_input).expect("Failed to read line");
 
-    let number: f64 = user_input.trim().parse().expect("Please enter an integer!");
-
-    return number;
+    user_input.trim().parse().expect("Please enter an integer!")
 }
