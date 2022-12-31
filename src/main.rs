@@ -31,14 +31,14 @@ fn main() {
     let mut income_tax_bands: Vec<Vec<f64>> = vec![
         vec![12570.0 / 12.0,                0.0,    0.0],   // allowances
         vec![(50270.0 - 12570.0) / 12.0,    0.2,    0.0],   // basic
-        vec![(150000.0 - 50270.0) / 12.0,   0.4,    0.0],   // higher
+        vec![(150000.0 - 50271.0) / 12.0,   0.4,    0.0],   // higher
         vec![-1.0,                          0.45,   0.0]    // above
     ];
 
     let mut national_insurance_bands: Vec<Vec<f64>> = vec![
         vec![1048.0,            0.0,    0.0],   // primary threshold
-        vec![4189.0 - 1048.0,   0.1325, 0.0],   // upper earnings limit
-        vec![-1.0,              0.0325, 0.0]    // above
+        vec![4189.0 - 1048.0,   0.12,   0.0],   // upper earnings limit
+        vec![-1.0,              0.02,   0.0]    // above
     ];
 
     let income_tax: f64 = calculate_tax(&mut income_tax_bands, monthly_salary);
