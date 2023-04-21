@@ -28,7 +28,7 @@ fn calculate_tax(bands: &mut Vec<Vec<f64>>, monthly_salary: f64) -> f64 {
 }
 
 fn main() {
-    let monthly_salary: f64 = user_input::get_user_input("Enter monthly salary (£):");
+    let monthly_salary: f64 = user_input::input("Enter monthly salary (£):");
 
     let mut income_tax_bands: Vec<Vec<f64>> = vec![
         vec![12570.0 / 12.0,                0.0,    0.0],   // allowances
