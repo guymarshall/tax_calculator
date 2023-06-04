@@ -33,7 +33,7 @@ fn main() {
     let mut income_tax_bands: Vec<Vec<f64>> = vec![
         vec![12570.0 / 12.0,                0.0,    0.0],   // allowances
         vec![(50270.0 - 12570.0) / 12.0,    0.2,    0.0],   // basic
-        vec![(150000.0 - 50271.0) / 12.0,   0.4,    0.0],   // higher
+        vec![(125140.0 - 50270.0) / 12.0,   0.4,    0.0],   // higher
         vec![-1.0,                          0.45,   0.0]    // above
     ];
 
