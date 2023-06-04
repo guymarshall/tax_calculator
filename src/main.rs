@@ -37,10 +37,10 @@ fn main() {
         [-1.0,                          0.45,   0.0],   // above
     ];
 
-    let mut national_insurance_bands: Vec<Vec<f64>> = vec![
-        vec![1048.0,            0.0,    0.0],   // primary threshold
-        vec![4189.0 - 1048.0,   0.12,   0.0],   // upper earnings limit
-        vec![-1.0,              0.02,   0.0]    // above
+    let mut national_insurance_bands: [[f64; 3]; 3] = [
+        [1048.0,            0.0,    0.0],   // primary threshold
+        [4189.0 - 1048.0,   0.12,   0.0],   // upper earnings limit
+        [-1.0,              0.02,   0.0]    // above
     ];
 
     let income_tax: f64 = calculate_tax(&mut income_tax_bands, monthly_salary);
