@@ -1,6 +1,6 @@
 #![forbid(unsafe_code)]
 
-mod user_input;
+use promptput::input;
 
 /*
     This program calculates the income tax, national insurance tax, and total tax that will be paid on the user's income.
@@ -28,19 +28,19 @@ fn calculate_tax(bands: &mut Vec<Vec<f64>>, monthly_salary: f64) -> f64 {
 }
 
 fn main() {
-    let monthly_salary: f64 = user_input::input("Enter monthly salary (£):");
+    let monthly_salary: f64 = input("Enter monthly salary (£):");
 
     let mut income_tax_bands: Vec<Vec<f64>> = vec![
-        vec![12570.0 / 12.0,                0.0,    0.0],   // allowances
-        vec![(50270.0 - 12570.0) / 12.0,    0.2,    0.0],   // basic
-        vec![(125140.0 - 50270.0) / 12.0,   0.4,    0.0],   // higher
-        vec![-1.0,                          0.45,   0.0]    // above
+        vec![12570.0 / 12.0, 0.0, 0.0],              // allowances
+        vec![(50270.0 - 12570.0) / 12.0, 0.2, 0.0],  // basic
+        vec![(125140.0 - 50270.0) / 12.0, 0.4, 0.0], // higher
+        vec![-1.0, 0.45, 0.0],                       // above
     ];
 
     let mut national_insurance_bands: Vec<Vec<f64>> = vec![
-        vec![1048.0,            0.0,    0.0],   // primary threshold
-        vec![4189.0 - 1048.0,   0.12,   0.0],   // upper earnings limit
-        vec![-1.0,              0.02,   0.0]    // above
+        vec![1048.0, 0.0, 0.0],           // primary threshold
+        vec![4189.0 - 1048.0, 0.12, 0.0], // upper earnings limit
+        vec![-1.0, 0.02, 0.0],            // above
     ];
 
     let income_tax: f64 = calculate_tax(&mut income_tax_bands, monthly_salary);
